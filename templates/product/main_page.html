@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<u>
+    {% for product in products %}
+    <li>
+        <a href="{% url 'view_product' product.pk %}"><p>Назва: {{product.name}}</p></a>
+        Ціна: {{product.price}}
+        {% if product.images.all %}
+            <p><img src="{{ product.images.first.image.url }}" alt="Photo"></p>
+        {% endif %}
+    </li>
+    {% endfor %}
+</u>
+
+
+{% endblock %}

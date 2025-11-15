@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+        <h2>{{product.name}}</h2>
+        Ціна: {{product.price}}
+        <p>Залишилось: {{product.count}}</p>
+        <p>{{product.description}}</p>
+
+
+        {% if product.images.all %}
+            {% for image in product.images.all %}
+            <p><img src="{{ image.image.url }}" alt="Photo"></p>
+            {% endfor %}
+        {% endif %}
+
+
+
+{% endblock %}
